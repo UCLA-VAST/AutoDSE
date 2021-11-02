@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$#" -eq 4 ]; then
+    python3.6 -m autodse --src-dir $1 --work-dir $2 --src-file $3 --mode ${4}-dse
+elif [ "$#" -eq 5 ]; then
+    python3.6 -m autodse --src-dir $1 --work-dir $2 --src-file $3 --mode ${4}-dse --db $5
+else
+    echo "Usage: autodse <project dir> <working dir> <kernel file> <fastgen|accurategen> [<database file>]"
+fi

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$#" -eq 4 ]; then
+    python3.6 -m autodse --src-dir $1 --work-dir $2 --config $3 --mode ${4}-check
+else
+    echo "Usage: checkds <project dir> <working dir> <config file> <fast|complete>"
+fi
