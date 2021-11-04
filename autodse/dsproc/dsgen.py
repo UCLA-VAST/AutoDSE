@@ -35,7 +35,7 @@ def ds_gen(src_file) -> str:
     
     
     if exists(join(src_dir, 'ds_info.json')):
-        kernel_with_ds = [f for f in iglob(join(src_dir, '*'), recursive=True) if f.startswith('rose_merlinkernel_')][0]
+        kernel_with_ds = [f for f in iglob(join(src_dir, '*'), recursive=True) if basename(f).startswith('rose_merlinkernel_')][0]
         copy(kernel_with_ds, src_file)
         ds_file = join(src_dir, 'ds_info.json')
         with open(ds_file, 'r') as f_ds:

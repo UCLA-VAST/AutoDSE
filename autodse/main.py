@@ -121,6 +121,7 @@ class Main():
             self.src_file = None
         else:
             self.src_file = os.path.abspath(self.args.src_file)
+            self.cfg_path = None
 
         dir_prefix = os.path.commonprefix([self.src_dir, self.work_dir])
         if dir_prefix in [self.src_dir, self.work_dir]:
