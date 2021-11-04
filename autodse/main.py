@@ -47,7 +47,7 @@ def arg_parser() -> argparse.Namespace:
                         default='.',
                         help='DSE working directory')
     parser.add_argument('--config',
-                        required=True,
+                        required=False,
                         action='store',
                         help='path to the configure JSON file')
     parser.add_argument('--db',

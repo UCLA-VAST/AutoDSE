@@ -44,9 +44,11 @@ cd docker
 1. Invoke the installed docker in an interactive session:
 ````bash
 cd docker
-./docker-run.sh
+./docker-run.sh -i /bin/bash
 ````
 2. You can run AutoDSE in any of the following forms depending on your use case. 
+
+**Note:** Remember that before proceeding with this part, you should make sure that your source directory runs with the Merlin Compiler. 
 
 #### Design Space Generator + Explorer
 If you want to run AutoDSE through all the steps of augmenting the kernel code with candidate pragmas and running an explorer on it, run the following command:
