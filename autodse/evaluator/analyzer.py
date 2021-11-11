@@ -51,11 +51,11 @@ class Analyzer():
 class MerlinAnalyzer(Analyzer):
     """"The analyzer especially for Merlin projects"""
 
-    #critical_msgs = [
-    #    'Memory burst NOT inferred', 'Coarse-grained pipelining NOT applied on loop',
-    #    'Coarse-grained parallelization NOT applied'
-    #]
-    critical_msgs = []
+    critical_msgs = [
+        'Memory burst NOT inferred', 'Coarse-grained pipelining NOT applied on loop',
+        'Coarse-grained parallelization NOT applied'
+    ]
+    #critical_msgs = []
 
     resource_types = ['BRAM', 'FF', 'LUT', 'DSP']
 
