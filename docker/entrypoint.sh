@@ -1,6 +1,7 @@
 #!/bin/bash
 
-redis-server &> /dev/null &
+# prevent SIGINT from interrupting redis
+setsid redis-server >/dev/null 2>&1 &
 
 export HOME=/home
 
