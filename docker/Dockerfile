@@ -12,16 +12,16 @@ RUN python3.6 -m pip install --trusted-host pypi.python.org setuptools \
 RUN yum install -y redis
 
 COPY ./docker/dse /usr/local/bin
-RUN chmod +x /usr/local/bin/dse
+RUN chmod 755 /usr/local/bin/dse
 COPY ./docker/autodse /usr/local/bin
-RUN chmod +x /usr/local/bin/autodse
+RUN chmod 755 /usr/local/bin/autodse
 COPY ./docker/checkds /usr/local/bin
-RUN chmod +x /usr/local/bin/checkds
+RUN chmod 755 /usr/local/bin/checkds
 COPY ./docker/ds_generator /usr/local/bin
-RUN chmod +x /usr/local/bin/ds_generator
+RUN chmod 711 /usr/local/bin/ds_generator
 
 COPY ./docker/entrypoint.sh /usr/local/bin
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod 755 /usr/local/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
 ADD . /opt/merlin_dse
