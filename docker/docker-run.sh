@@ -5,7 +5,7 @@ function git_cmd() {
 }
 
 docker_tag=latest
-
+cwd=$(pwd -P)
 
 print_help() {
   echo "USAGE: $0 [options] cmd";
@@ -180,15 +180,15 @@ add_license FALCONLM_LICENSE_FILE
 add_license XILINXD_LICENSE_FILE
 
 #options="$options -v $script_dir/../license:/opt/merlin/license"
-#options="$options -e LM_LICENSE_FILE=$LM_LICENSE_FILE:/opt/merlin/license/license.lic:$PWD/license.lic"
+#options="$options -e LM_LICENSE_FILE=$LM_LICENSE_FILE:/opt/merlin/license/license.lic:$cwd/license.lic"
 #options="$options -e FALCONLM_LICENSE_FILE=$FALCONLM_LICENSE_FILE"
 #options="$options -e XILINXD_LICENSE_FILE=$XILINXD_LICENSE_FILE"
 options="$options -e MERLIN_AUTO_DEVICE_XILINX=$MERLIN_AUTO_DEVICE_XILINX"
 options="$options -e MERLIN_AUTO_DEVICE_INTEL=$MERLIN_AUTO_DEVICE_INTEL"
 
-base_dir=$(get_base $PWD)
+base_dir=$(get_base $cwd)
 if [ ${illegal_base[$base_dir]+abc} ]; then
-  echo "[merlin-cmd] ERROR: running from $PWD is not supported, please run from a different directory"
+  echo "[merlin-cmd] ERROR: running from $cwd is not supported, please run from a different directory"
   exit 1
 fi
 
@@ -199,7 +199,7 @@ echo " \
 docker run \
     $options \
     -v "$base_dir":"$base_dir" \
-    -w="$PWD" \
+    -w="$cwd" \
     -e "WITH_DOCKER=1" \
     --rm \
     -t \
@@ -209,7 +209,7 @@ docker run \
 docker run \
     $options \
     -v "$base_dir":"$base_dir" \
-    -w="$PWD" \
+    -w="$cwd" \
     -e "WITH_DOCKER=1" \
     --rm \
     -t \
