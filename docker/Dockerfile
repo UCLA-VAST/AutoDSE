@@ -26,3 +26,6 @@ ENTRYPOINT ["entrypoint.sh"]
 
 ADD . /opt/merlin_dse
 ENV PYTHONPATH /opt/merlin_dse:${PYTHONPATH}
+
+RUN find /opt/merlin_dse/autodse -type d -exec chmod 755 {} \;
+RUN find /opt/merlin_dse/autodse -type f -exec chmod 644 {} \;
