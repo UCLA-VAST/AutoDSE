@@ -7,6 +7,8 @@
 ## About
 This repo contains the codes for AutoDSE which can help you optimize your FPGA design. For more information on what AutoDSE is please refer to the [publication](https://arxiv.org/abs/2009.14381).
 
+AutoDSE is a fully automated design space exploration that leverages a bottleneck-guided coordinate optimizer to systematically find a better design point. At each iteration, AutoDSE detects the bottleneck of the design and focuses on high-impact parameters to overcome it. 
+
 
 ## Content
 1. [Requirements and Dependencies](#requirements-and-dependencies)

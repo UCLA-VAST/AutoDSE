@@ -320,6 +320,7 @@ class RedisDatabase(Database):
 
         pickled_result = pickle.dumps(result)
         self.database.hset(self.db_id, key, pickled_result)
+        self.persist()
         return True
 
     def batch_commit_impl(self, pairs: List[Tuple[str, Any]]) -> int:
@@ -327,6 +328,7 @@ class RedisDatabase(Database):
 
         data = {key: pickle.dumps(result) for key, result in pairs}
         self.database.hmset(self.db_id, data)
+        self.persist()
         return len(data)
 
     def count(self) -> int:
