@@ -22,12 +22,12 @@ Each of the above commands will produce a file named `ds_info.json` which descri
 
 ````json
 "__PARA__L0" : 
-		{
-			"ds_type" : "PARALLEL",
-			"options" : "[x for x in [1,2,4,7,8,14,16,32] if x*__TILE__L0<=32]",
-            "default" : 1,
-			"order" : "0 if x&(x-1)==0 else 1"
-		},
+	{
+		"ds_type" : "PARALLEL",
+		"options" : "[x for x in [1,2,4,7,8,14,16,32] if x*__TILE__L0<=32]",
+		"default" : 1,
+		"order" : "0 if x&(x-1)==0 else 1"
+	}
 ````
 
 - **ds_type:** this attribute defines the type of the pragma. Choices are `PIPELINE`, `PARALLEL`, and `TILE`.
