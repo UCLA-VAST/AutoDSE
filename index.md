@@ -1,3 +1,5 @@
+AutoDSE
+
 # Design Space Definition
 
 The candidate pragmas for AutoDSE can be in either of the following forms:
