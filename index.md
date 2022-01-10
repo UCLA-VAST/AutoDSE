@@ -1,6 +1,6 @@
-AutoDSE
+# AutoDSE Tutorial
 
-# Design Space Definition
+## Design Space Definition
 
 The candidate pragmas for AutoDSE can be in either of the following forms:
 
@@ -37,7 +37,7 @@ Each of the above commands will produce a file named `ds_info.json` which descri
 
 Please refer to [this file](https://github.com/UCLA-VAST/AutoDSE/blob/gh-pages/test/ds_info.json) for a complete example on design space (DS) definition for the [GEMM kernel from the Machsuite benchmark](https://github.com/breagen/MachSuite/tree/master/gemm/ncubed)
 
-# AutoDSE Settings
+## AutoDSE Settings
 The rest of the settings in the [config file](https://github.com/UCLA-VAST/AutoDSE/blob/gh-pages/test/ds_info.json) determines how AutoDSE should be run. The following table gives a description of each of them.
 
 | Setting | Description|
@@ -58,7 +58,7 @@ The rest of the settings in the [config file](https://github.com/UCLA-VAST/AutoD
 | timeout.hls | time limit (in minutes) for the HLS synthesis |
 | timeout.transform |  time limit (in minutes) for Merlin's code transformation |
 
-# Output Structure
+## Output Structure
 The generated files structure is as shown below:
 ````
 .
@@ -77,7 +77,7 @@ The generated files structure is as shown below:
 +-- summary_[XX].rpt # summarizes all the points explored in mode XX (`fast` or `accurate`)
 ````
 
-# General Tips
+## General Tips
 1. When AutoDSE is finished, it will save all the explored design points in a file (by default: `redis.db`) as a [Redis database](https://developer.redis.com/develop/python/). In the presence of such file, you can resume the DSE by re-running the DSE command:
 
 ````bash
