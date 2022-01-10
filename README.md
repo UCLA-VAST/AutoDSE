@@ -1,6 +1,6 @@
 # AutoDSE
 
-[Tutorial](https://ucla-vast.github.io/AutoDSE/) |
+| [Tutorial](https://ucla-vast.github.io/AutoDSE/) |
 
 ## Publication
 
