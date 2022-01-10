@@ -1,5 +1,7 @@
 # AutoDSE
 
+[Tutorial](https://ucla-vast.github.io/AutoDSE/) |
+
 ## Publication
 
 + Atefeh Sohrabizadeh, Cody Hao Yu, Min Gao, Jason Cong. [AutoDSE: Enabling Software Programmers to Design Efficient FPGA Accelerators](https://arxiv.org/abs/2009.14381). In ACM TODAES, 2021.
@@ -57,6 +59,8 @@ If you want to run AutoDSE through all the steps of augmenting the kernel code w
 ````bash
 autodse <project dir> <working dir> <kernel file> <fastgen|accurategen> [<database file>]
 ````
+The `fastgen` mode performs DSE based on the HLS synthesis. The `accurategen` mode additionally generates this bitstream and outputs the best HLS design.
+
 
 #### Desgin Space Generator
 If you only want to augment the code with the candidate pragmas and analyze them, run the following command:
@@ -64,12 +68,13 @@ If you only want to augment the code with the candidate pragmas and analyze them
 ds_generator [-I<include dir>] <kernel file>
 ````
 
+
 #### Design Space Explorer
 If you already have defined your design space and augmented the code with the candidate pragmas (either using AutoDSE or writing your own files) and only want to run the explorer, run the following command:
 ````bash
 dse <project dir> <working dir> <config file> <fast|accurate> [<database file>]
 ````
-
+The `fast` mode performs DSE based on the HLS synthesis. The `accurate` mode additionally generates this bitstream and outputs the best HLS design.
 
 ## Citation
 If you find any of the ideas/codes useful for your research, please cite our paper:
