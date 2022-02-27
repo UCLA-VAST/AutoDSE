@@ -52,7 +52,7 @@ The rest of the settings in the [config file](https://github.com/UCLA-VAST/AutoD
 | search.algorithm.gradient.fine-grained-first | if set to `true` starts optimizing from the innermost loops in the bottleneck optimizer |
 | search.algorithm.gradient.latency-threshold | the minimum threshold latency we wish to achieve |
 | search.algorithm.gradient.quality-type | how to measure the quality of design, choices: `performance`, or `finite-difference`
-| search.algorithm.name | exploration strategy, use `gradient` to implement the paper's approach. You can also use `exhaustive` for exhaustive search or `hybrid` for a combination of these two.
+| search.algorithm.name | exploration strategy, use `bottleneck` to implement the paper's approach. You can also use `exhaustive` for exhaustive search or `hybrid` for a combination of these two.
 | timeout.bitgen | time limit (in minutes) for generating the bitstream |
 | timeout.exploration | time limit (in minutes) for DSE |
 | timeout.hls | time limit (in minutes) for the HLS synthesis |
