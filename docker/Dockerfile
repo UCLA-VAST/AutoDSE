@@ -9,7 +9,7 @@ RUN python3.6 -m pip install --trusted-host pypi.python.org setuptools \
     pytest-cov pytest-mock Sphinx sphinx_rtd_theme yapf tox argparse jsonpickle pickledb \
     redis texttable matplotlib --upgrade
 
-RUN yum install -y redis
+RUN yum install -y redis faketime
 
 COPY ./docker/dse /usr/local/bin
 RUN chmod 755 /usr/local/bin/dse

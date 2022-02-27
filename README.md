@@ -4,10 +4,10 @@
 
 ## Publication
 
-+ Atefeh Sohrabizadeh, Cody Hao Yu, Min Gao, Jason Cong. [AutoDSE: Enabling Software Programmers to Design Efficient FPGA Accelerators](https://arxiv.org/abs/2009.14381). In ACM TODAES, 2021.
++ Atefeh Sohrabizadeh, Cody Hao Yu, Min Gao, Jason Cong. [AutoDSE: Enabling Software Programmers to Design Efficient FPGA Accelerators](https://dl.acm.org/doi/full/10.1145/3494534). In ACM TODAES, 2022.
 
 ## About
-This repo contains the codes for AutoDSE which can help you optimize your FPGA design. For more information on what AutoDSE is please refer to the [publication](https://arxiv.org/abs/2009.14381).
+This repo contains the codes for AutoDSE which can help you optimize your FPGA design. For more information on what AutoDSE is please refer to the [publication](https://dl.acm.org/doi/full/10.1145/3494534).
 
 AutoDSE is a fully automated design space exploration that leverages a bottleneck-guided coordinate optimizer to systematically find a better design point. At each iteration, AutoDSE detects the bottleneck of the design and focuses on high-impact parameters to overcome it. 
 

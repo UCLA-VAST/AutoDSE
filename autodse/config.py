@@ -63,7 +63,7 @@ CONFIG_SETTING: Dict[str, Dict[str, Any]] = {
     'search.algorithm.name': {
         'require': False,
         'default': 'gradient',
-        'options': ['exhaustive', 'gradient', 'hybrid']
+        'options': ['exhaustive', 'gradient', 'hybrid', 'bottleneck']
     },
     'search.algorithm.exhaustive.batch-size': {
         'require': False,

@@ -39,8 +39,8 @@ class AlgorithmFactory():
             return ExhaustiveAlgorithm(ds=ds,
                                        log_file_name=log_file_name,
                                        batch_size=algo_config['batch-size'])
-        if name == 'gradient':
-            algo_config = config[name]
+        if name == 'gradient' or name == 'bottleneck':
+            algo_config = config['gradient']
             assert isinstance(algo_config, dict)
             return GradientAlgorithm(ds=ds,
                                      latency_thd=algo_config['latency-threshold'],

@@ -40,6 +40,7 @@ def ds_gen(src_file) -> str:
         ds_file = join(src_dir, 'ds_info.json')
         with open(ds_file, 'r') as f_ds:
             ds_info = json.load(f_ds)
+            ds_info["search.algorithm.name"] = "bottleneck"
             ds_info['timeout.exploration'] = 1200 
             ds_info['timeout.hls'] = 80 
             ds_info['timeout.transform'] = 20 
