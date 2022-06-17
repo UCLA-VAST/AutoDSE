@@ -17,6 +17,8 @@ COPY ./docker/autodse /usr/local/bin
 RUN chmod 755 /usr/local/bin/autodse
 COPY ./docker/checkds /usr/local/bin
 RUN chmod 755 /usr/local/bin/checkds
+COPY ./docker/single /usr/local/bin
+RUN chmod 755 /usr/local/bin/single
 COPY ./docker/ds_generator /usr/local/bin
 RUN chmod 711 /usr/local/bin/ds_generator
 
