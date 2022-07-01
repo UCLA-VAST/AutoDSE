@@ -16,8 +16,7 @@ from ..evaluator.evaluator import MerlinEvaluator
 from ..database import RedisDatabase
 from ..evaluator.scheduler import PythonSubprocessScheduler
 
-
-def run_query(point, src_dir, eval_dir, kernel, config_path = None) -> Optional[Dict[str, Result]]:
+def run_query(point, src_dir, eval_dir, kernel, config_path = None, timeout = 200) -> Optional[Dict[str, Result]]:
     key = gen_key_from_design_point(point)
     print(key)
     
@@ -52,7 +51,7 @@ def run_query(point, src_dir, eval_dir, kernel, config_path = None) -> Optional[
         if config is None:
             print('Config %s is invalid', config_path)
             raise RuntimeError()
-        config['timeout']['hls'] = 200
+        config['timeout']['hls'] = int(timeout)
         return config
 
     def create_job_and_apply_point(point, evaluator) -> Optional[Job]:
@@ -75,7 +74,6 @@ def run_query(point, src_dir, eval_dir, kernel, config_path = None) -> Optional[
         return job
 
     config = load_config(config_path)
-    
     evaluator = MerlinEvaluator(src_path=src_dir,
                                 work_path=eval_dir,
                                 db=db,
@@ -137,6 +135,16 @@ def kernel_parser() -> argparse.Namespace:
                         action='store',
                         default='.',
                         help='work Directory')
+    parser.add_argument('--id',
+                        required=False,
+                        action='store',
+                        default='0',
+                        help='the ID of design in the batch')
+    parser.add_argument('--timeout',
+                        required=False,
+                        action='store',
+                        default='200',
+                        help='timeout for running HLS synthesis')
     # parser.add_argument('--point',
     #                     required=True,
     #                     action='store',
@@ -147,12 +155,11 @@ def kernel_parser() -> argparse.Namespace:
     
 args = kernel_parser()
 
-
-point = pickle.load(open(f'./autodse/kernel_results/{args.kernel}_point.pickle', 'rb'))
+point = pickle.load(open(f'./localdse/kernel_results/{args.kernel}_point_{args.id}.pickle', 'rb'))
 print(point)
 
-q_result = run_query(point, args.src_dir, args.work_dir, args.kernel, args.config)
-with open(f'./autodse/kernel_results/{args.kernel}.pickle', 'wb') as handle:
+q_result = run_query(point, args.src_dir, args.work_dir, args.kernel, args.config, args.timeout)
+with open(f'./localdse/kernel_results/{args.kernel}_{args.id}.pickle', 'wb') as handle:
     pickle.dump(q_result, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
