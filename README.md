@@ -79,11 +79,15 @@ The `fast` mode performs DSE based on the HLS synthesis. The `accurate` mode add
 ## Citation
 If you find any of the ideas/codes useful for your research, please cite our paper:
 
-	@article{sohrabizadeh2020autodse,
-  		title={AutoDSE: Enabling Software Programmers Design Efficient FPGA Accelerators},
-  		author={Sohrabizadeh, Atefeh and Yu, Cody Hao and Gao, Min and Cong, Jason},
- 		journal={arXiv preprint arXiv:2009.14381},
-  		year={2020}
+	@article{sohrabizadeh2022autodse,
+		title={AutoDSE: Enabling Software Programmers to Design Efficient FPGA Accelerators},
+		author={Sohrabizadeh, Atefeh and Yu, Cody Hao and Gao, Min and Cong, Jason},
+		journal={ACM Transactions on Design Automation of Electronic Systems (TODAES)},
+		volume={27},
+		number={4},
+		pages={1--27},
+		year={2022},
+		publisher={ACM New York, NY}
 	}
 
 
