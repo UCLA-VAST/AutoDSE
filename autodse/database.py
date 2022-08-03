@@ -337,7 +337,6 @@ class RedisDatabase(Database):
 
     def persist(self) -> bool:
         #pylint:disable=missing-docstring
-
         dump_db = {
             key: self.database.hget(self.db_id, key)
             for key in self.database.hgetall(self.db_id)

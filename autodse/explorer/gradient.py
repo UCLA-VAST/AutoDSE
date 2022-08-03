@@ -300,6 +300,8 @@ class GradientAlgorithm(SearchAlgorithm):
         Returns:
             The quality value. Larger the better.
         """
+        if new_result.perf == 0.0:
+            return -1.0
         return 1.0 / new_result.perf
 
     def finte_diff_as_quality(self, new_result: Result, ref_result: Result) -> float:

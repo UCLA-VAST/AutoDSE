@@ -29,9 +29,10 @@ class LogFormatter(logging.Formatter):
 logging.Formatter = LogFormatter  # type: ignore
 
 DSE_LOGGERS: Dict[str, logging.Logger] = {}
+LOG_LEVEL = 'DEFAULT'
 
 
-def get_default_logger(name: str, level: str = 'DEFAULT') -> logging.Logger:
+def get_default_logger(name: str, level: str = LOG_LEVEL) -> logging.Logger:
     """Attach to the default logger"""
     global DSE_LOGGERS
 
@@ -58,7 +59,7 @@ def get_default_logger(name: str, level: str = 'DEFAULT') -> logging.Logger:
     return logger
 
 
-def get_algo_logger(name: str, file_name: str, level: str = 'DEFAULT') -> logging.Logger:
+def get_algo_logger(name: str, file_name: str, level: str = LOG_LEVEL) -> logging.Logger:
     """Attach to the algorithm logger"""
     global DSE_LOGGERS
 
@@ -91,7 +92,7 @@ def get_algo_logger(name: str, file_name: str, level: str = 'DEFAULT') -> loggin
     return logger
 
 
-def get_eval_logger(name: str, level: str = 'DEFAULT') -> logging.Logger:
+def get_eval_logger(name: str, level: str = LOG_LEVEL) -> logging.Logger:
     """Attach to the evaluator logger"""
     global DSE_LOGGERS
 

@@ -206,8 +206,12 @@ class Reporter():
         if not total:
             return rpt, ''
 
-        assert lv_data[0][0].point is not None
-        param_names = list(lv_data[0][0].point.keys())
+        if len(lv_data[0]) > 0: 
+            assert lv_data[0][0].point is not None
+            param_names = list(lv_data[0][0].point.keys())
+        else:	
+            assert lv_data[1][0].point is not None
+            param_names = list(lv_data[1][0].point.keys())
 
         for lv_idx, data in enumerate(lv_data):
             if not data:
