@@ -52,14 +52,16 @@ cd docker
 ````
 2. You can run AutoDSE in any of the following forms depending on your use case. 
 
-**Note:** Remember that before proceeding with this part, you should make sure that your source directory runs with the Merlin Compiler. 
+**Note 1:** Remember that before proceeding with this part, you should make sure that your source directory runs with the Merlin Compiler. 
+**Note 2:** All the `for` loops should use `{}` for denoting their statements, even if there is only one statement inside the loop.
+**Note 3:** The name of the kernel file cannot start with `rose`. 
 
 #### Design Space Generator + Explorer
 If you want to run AutoDSE through all the steps of augmenting the kernel code with candidate pragmas and running an explorer on it, run the following command:
 ````bash
 autodse <project dir> <working dir> <kernel file> <fastgen|accurategen> [<database file>]
 ````
-The `fastgen` mode performs DSE based on the HLS synthesis. The `accurategen` mode additionally generates this bitstream and outputs the best HLS design.
+The `fastgen` mode performs DSE based on the HLS synthesis. The `accurategen` mode additionally generates the bitstream and outputs the best HLS design.
 
 
 #### Desgin Space Generator
@@ -68,13 +70,15 @@ If you only want to augment the code with the candidate pragmas and analyze them
 ds_generator [-I<include dir>] <kernel file>
 ````
 
+The generated file will start with `rose_merlin`. If you want to use this file in the DSE process, replace your kernel file with it and proceed to the next part. 
+
 
 #### Design Space Explorer
 If you already have defined your design space and augmented the code with the candidate pragmas (either using AutoDSE or writing your own files) and only want to run the explorer, run the following command:
 ````bash
 dse <project dir> <working dir> <config file> <fast|accurate> [<database file>]
 ````
-The `fast` mode performs DSE based on the HLS synthesis. The `accurate` mode additionally generates this bitstream and outputs the best HLS design.
+The `fast` mode performs DSE based on the HLS synthesis. The `accurate` mode additionally generates the bitstream and outputs the best HLS design.
 
 ## Citation
 If you find any of the ideas/codes useful for your research, please cite our paper:
