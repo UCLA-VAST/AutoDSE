@@ -335,6 +335,8 @@ class MerlinAnalyzer(Analyzer):
             # Extract cycles
             if 'CYCLE_TOT' in hls_info[elt]:
                 try:
+                    if float(hls_info[elt]['CYCLE_TOT']) == -1:
+                        return None
                     result.perf = max(float(hls_info[elt]['CYCLE_TOT']), result.perf)
                 except ValueError as err:
                     # Some compoenents may be flatten and do not have cycle number (valid),
