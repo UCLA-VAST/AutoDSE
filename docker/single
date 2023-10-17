@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ "$#" -eq 5 ]; then
-    faketime '2020-12-24 08:15:42' python3.6 -m autodse.explorer.single_query --src-dir $1 --work-dir $2 --kernel $3 --config $4 --id $5
+    python3 -m autodse.explorer.single_query --src-dir $1 --work-dir $2 --kernel $3 --config $4 --id $5
 elif [ "$#" -eq 6 ]; then
-    faketime '2020-12-24 08:15:42' python3.6 -m autodse.explorer.single_query --src-dir $1 --work-dir $2 --kernel $3 --config $4 --id $5 --timeout $6
+    python3 -m autodse.explorer.single_query --src-dir $1 --work-dir $2 --kernel $3 --config $4 --id $5 --timeout $6
 else
     echo "Usage single <project dir> <working dir> <kernel name> <config file> <id> [<timeout>]"
 fi
