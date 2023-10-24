@@ -234,7 +234,7 @@ class RedisDatabase(Database):
         database: The Redis database.
     """
 
-    def __init__(self, name: str, db_file_path: Optional[str] = None):
+    def __init__(self, name: str, db_file_path: Optional[str] = None, port: int = 6379):
         """Constructor
 
         Args:
@@ -246,13 +246,13 @@ class RedisDatabase(Database):
         import redis
 
         #TODO: scale-out
-        self.database = redis.StrictRedis(host='localhost', port=6379)
+        self.database = redis.StrictRedis(host='localhost', port=port)
 
         # Check the connection
         try:
             self.database.client_list()
         except redis.ConnectionError as err:
-            print('Error: Failed to connect to Redis database: {}'.format(str(err)))
+            print('Error: Failed to connect to Redis database at port {}: {}'.format(port, str(err)))
             sys.exit(1)
 
     def load(self) -> None:

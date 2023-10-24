@@ -3,7 +3,9 @@
 if [ "$#" -eq 4 ]; then
     python3 -m autodse --src-dir $1 --work-dir $2 --src-file $3 --mode ${4}-dse
 elif [ "$#" -eq 5 ]; then
-    python3 -m autodse --src-dir $1 --work-dir $2 --src-file $3 --mode ${4}-dse --db $5
+    python3 -m autodse --src-dir $1 --work-dir $2 --src-file $3 --mode ${4}-dse --redis-port $5
+elif [ "$#" -eq 6 ]; then
+    python3 -m autodse --src-dir $1 --work-dir $2 --src-file $3 --mode ${4}-dse --redis-port $5 --db $6
 else
-    echo "Usage: autodse <project dir> <working dir> <kernel file> <fastgen|accurategen> [<database file>]"
+    echo "Usage: autodse <project dir> <working dir> <kernel file> <fastgen|accurategen> [<redis port> <database file>]"
 fi

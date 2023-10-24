@@ -33,6 +33,11 @@ def arg_parser() -> argparse.Namespace:
     """Parse user arguments."""
 
     parser = argparse.ArgumentParser(description='Automatic Design Space Exploration')
+    parser.add_argument('--redis-port',
+                        required=False,
+                        action='store',
+                        default='6379',
+                        help='The port number for redis database')
     parser.add_argument('--src-file',
                         required=False,
                         action='store',
@@ -105,6 +110,7 @@ class Main():
             sys.exit(1)
 
         # Processing path and directory
+        self.redis_port = int(self.args.redis_port)
         self.src_dir = os.path.abspath(self.args.src_dir)
         self.work_dir = os.path.abspath(self.args.work_dir)
         self.out_dir = os.path.join(self.work_dir, 'output')
@@ -174,9 +180,9 @@ class Main():
                 os.remove('eval.log')
 
         # Initialize database
-        self.log.info('Initializing the database')
+        self.log.info(f'Initializing the database at port {self.redis_port}')
         try:
-            self.db = RedisDatabase(self.config['project']['name'], self.db_path)
+            self.db = RedisDatabase(self.config['project']['name'], self.db_path, self.redis_port)
         except RuntimeError:
             self.log.error('Failed to connect to the database')
             sys.exit(1)
