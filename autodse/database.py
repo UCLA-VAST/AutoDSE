@@ -247,6 +247,7 @@ class RedisDatabase(Database):
 
         #TODO: scale-out
         self.database = redis.StrictRedis(host='localhost', port=port)
+        self.database.flushdb()
 
         # Check the connection
         try:
